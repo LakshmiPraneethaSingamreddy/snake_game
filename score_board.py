@@ -8,7 +8,7 @@ class Score(Turtle):
         self.color('white')
         self.goto(0,260)
         self.score=0
-        self.high_score=0
+        self.high_score=int(open("data.txt").read())
         self.write_score()
 
     def write_score(self,):
@@ -26,6 +26,7 @@ class Score(Turtle):
     def reset_score(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            open("data.txt",'w').write(str(self.high_score))
         self.score=0
         self.write_score()
 
